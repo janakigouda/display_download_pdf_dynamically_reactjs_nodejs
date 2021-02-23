@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "ttps://janakigouda.github.io/display_download_pdf_dynamically_reactjs_nodejs/",
+  "homepage": "ttps://janakigouda.github.io/display_download_pdf_dynamically_reactjs_nodejs/client",
   "proxy": "http://localhost:5000/",
   "dependencies": {
     "axios": "^0.18.0",
