@@ -13,10 +13,10 @@ class App extends Component {
     price2: 0,
   }
 
-  handleChange = ({ target: { value, name } }) => this.setState({ [name]: value })
+  // handleChange = ({ target: { value, name } }) => this.setState({ [name]: value })
 
   createAndDownloadPdf = () => {
-    axios.post('/create-pdf', this.state)
+    axios.post('/create-pdf')
       .then(() => axios.get('fetch-pdf', { responseType: 'blob' }))
       .then((res) => {
         const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
@@ -26,15 +26,8 @@ class App extends Component {
   }
 
   createAndPreviewPdf = async () => {
-    axios.post('/create-pdf', this.state)
+    axios.post('/create-pdf')
       .then(() => axios.get('fetch-pdf', { responseType: 'blob' }))
-      
-    // axios(`http://localhost:5000/fetch-pdf`, {
-    //   method: "GET",
-    //   responseType: "blob"
-    //   //Force to receive data in a Blob Format
-    // }
-    // )
       .then(response => {
         //Create a Blob from the PDF Stream
         const file = new Blob([response.data], {
@@ -56,10 +49,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <input type="text" placeholder="Name" name="name" onChange={this.handleChange} />
+        {/* <input type="text" placeholder="Name" name="name" onChange={this.handleChange} />
         <input type="number" placeholder="Receipt ID" name="receiptId" onChange={this.handleChange} />
         <input type="number" placeholder="Price 1" name="price1" onChange={this.handleChange} />
-        <input type="number" placeholder="Price 2" name="price2" onChange={this.handleChange} />
+        <input type="number" placeholder="Price 2" name="price2" onChange={this.handleChange} /> */}
         <button onClick={this.createAndDownloadPdf}>Download PDF</button>
         <button onClick={this.createAndPreviewPdf}>Preview PDF</button>
       </div>
