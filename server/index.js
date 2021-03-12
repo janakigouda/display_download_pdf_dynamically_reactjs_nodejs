@@ -6,7 +6,7 @@ const cors = require('cors');
 const request = require('request');
 var querystring = require('querystring');
 
-const pdfTemplate = require('./documents');
+const pdfTemplate = require('./documents/index1');
 
 const app = express();
 
